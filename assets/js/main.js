@@ -96,7 +96,30 @@
 			}
 			$('.modal-content > span').on('click',function(){
 			      $(this).parent().parent().attr("style","display:none");
+			});
+
+			$(document).on('click','.model-show',function(){
+				var modelId = $(this).attr("data-model");
+				console.log(modelId);
+				$('#'+modelId).css('display','block');
+				// console.log(modelId,"modelId");
 			})
+			// var btns = document.getElementsByClassName("model-show");
+			//     for(var i=0; i<btns.length; i++){
+			// 				// When the user clicks on the button, open the modal
+			// 				btns[i].addEventListener("click", function(){
+			// 						// modal.style.display = "block";
+			// 						var modelId = this.getAttribute("data-model");
+			// 						var modal = document.getElementById(modelId);
+			// 						if(modal != null){
+			// 								modal.style.display = "block";
+			// 							}
+			// 						// console.log(,"btns[i]");
+			// 				  });
+			// 				// onclick = function() {
+			// 				//     modal.style.display = "block";
+			// 				// }
+			//     }
 	});
 
 })(jQuery);
@@ -108,22 +131,22 @@
 
 // Get the buttons that opens the modal
 // var btn = document.getElementById("myBtn");
-var btns = document.getElementsByClassName("model-show");
-    for(var i=0; i<btns.length; i++){
-				// When the user clicks on the button, open the modal
-				btns[i].addEventListener("click", function(){
-						// modal.style.display = "block";
-						var modelId = this.getAttribute("data-model");
-						var modal = document.getElementById(modelId);
-						if(modal != null){
-								modal.style.display = "block";
-							}
-						// console.log(,"btns[i]");
-				  });
-				// onclick = function() {
-				//     modal.style.display = "block";
-				// }
-    }
+// var btns = document.getElementsByClassName("model-show");
+//     for(var i=0; i<btns.length; i++){
+// 				// When the user clicks on the button, open the modal
+// 				btns[i].addEventListener("click", function(){
+// 						// modal.style.display = "block";
+// 						var modelId = this.getAttribute("data-model");
+// 						var modal = document.getElementById(modelId);
+// 						if(modal != null){
+// 								modal.style.display = "block";
+// 							}
+// 						// console.log(,"btns[i]");
+// 				  });
+// 				// onclick = function() {
+// 				//     modal.style.display = "block";
+// 				// }
+//     }
 
 // Get the <span> element that closes the modal
 // var span = document.getElementsByClassName("close")[0];
