@@ -3980,3 +3980,26 @@
 	    font-size: 0.8em;
 	    color:#484848;
 	}
+
+	.ins-name{
+		font-size:20px;
+	}
+
+	.ins-sub{
+		font-size: 15px;
+    	color: #929292;
+	}
+
+	.contact-no{
+		font-size: 15px;
+    	color: #8d9094;
+    	cursor:auto;
+	}
+
+	.model-show img{
+		cursor:pointer;
+	}
+
+	.model-show p{
+		cursor:pointer;
+	}
