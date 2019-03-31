@@ -46,12 +46,12 @@
 					<article id="main">
 						<header>
 							<h2>Contact us for further information</h2>
-							<p>Call us at 9843435462 | Send us an email</p>
+							<p>Call us at 9808286774 | Send us an email</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
 								<h4>Form</h4>
-									<form method="post" action="#">
+									<form method="GET" action="mailto:nepalhiphopfoundation01@gmail.com" enctype="text/plain">
 										<div class="row uniform">
 											<div class="6u 12u$(xsmall)">
 												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Full Name" />
@@ -74,6 +74,7 @@
 											<div class="12u$">
 												<ul class="actions">
 													<li><input type="submit" value="Send Message" class="special send-message" /></li>
+													<li><input type="hidden" name="body" /></li>
 												</ul>
 											</div>
 										</div>
@@ -85,10 +86,10 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="https://www.facebook.com/profile.php?id=100009843048662" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a> <span class="contact-no">| Call us: 9843435462</span></li>
+							<li><a href="https://www.facebook.com/profile.php?id=100009843048662" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a> <span class="contact-no">| Call us: 9808286774</span></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy;2017. Nepal Hiphop Foundation</li><li>Thamel: <a href="http://html5up.net">GAA HALL</a></li>
+							<li>&copy;2019. Nepal Hiphop Foundation</li><li>Thamel: <a href="http://html5up.net">GAA HALL</a></li>
 						</ul>
 					</footer>
 
@@ -102,6 +103,36 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+			var form = document.getElementsByTagName('form')[0];
+			form.addEventListener('submit',contact,false);
+			function contact(e) {
+				// Prevent Default Form Submission
+				e.preventDefault();
+
+				var target = e.target || e.srcElement;
+				var i = 0;
+				var message = '';
+				debugger;
+				// Loop Through All Input Fields
+				for(i = 0; i < target.length; ++i) {
+					// Check to make sure it's a value. Don't need to include Buttons
+					if(target[i].type != 'text' && target[i].type != 'textarea') {
+							// Skip to next input since this one doesn't match our rules
+						continue;
+					}
+
+					// Add Input Name and value followed by a line break
+					message += target[i].name + ': ' + target[i].value + "\r\n";
+				}
+				// Modify the hidden body input field that is required for the mailto: scheme
+				target.elements["body"].value = message;
+
+				// Submit the form since we previously stopped it. May cause recursive loop in some browsers? Should research this.
+				this.submit();
+			}
+			</script>
+
 
 	</body>
 </html>
